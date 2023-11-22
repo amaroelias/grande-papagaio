@@ -6,6 +6,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GrandePapagaio grandePapagaio = new GrandePapagaio();
+        if(GrandePapagaio.carregaDados("dados_grandepapagaio.ser") != null){
+            grandePapagaio = GrandePapagaio.carregaDados("dados_grandepapagaio.ser");
+        }
         boolean sair = true;
         System.out.println("Bem-vindo ao Grande Papagaio!");
 
@@ -82,5 +85,6 @@ public class Main {
                     escolha = scanner.nextLine();
             }
         }
+        grandePapagaio.salvaDados("dados_grandepapagaio.ser");
     }
 }

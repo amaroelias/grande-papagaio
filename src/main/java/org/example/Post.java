@@ -1,9 +1,10 @@
 package org.example;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Post {
+public class Post implements Serializable {
     private LocalDateTime data;
     private String nomeUsuario;
     private String mensagem;

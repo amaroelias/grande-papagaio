@@ -1,9 +1,10 @@
 package org.example;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 
-public class GrandePapagaio {
+public class GrandePapagaio implements Serializable{
     private HashMap<String,Usuario> usuarios;
 
     public GrandePapagaio() {
@@ -89,5 +90,30 @@ public class GrandePapagaio {
             stringBuilder.append(usuario.verPerfil());
         }
         return stringBuilder.toString();
+    }
+    public void salvaDados(String nomeArquivo) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream(nomeArquivo);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(this);
+            objectOut.close();
+            fileOut.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar os dados: " + e.getMessage());
+        }
+    }
+
+    public static GrandePapagaio carregaDados(String nomeArquivo) {
+        GrandePapagaio grandePapagaio = null;
+        try {
+            FileInputStream fileIn = new FileInputStream(nomeArquivo);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            grandePapagaio = (GrandePapagaio) objectIn.readObject();
+            objectIn.close();
+            fileIn.close();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Erro ao carregar os dados: " + e.getMessage());
+        }
+        return grandePapagaio;
     }
 }
