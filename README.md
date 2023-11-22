@@ -1,1 +1,1 @@
-### Rede Social GrandePapagaio feito em Java, onde é possivel o usuario postar, seguir, deixar de seguir e ver o seu perfil. Quando um usuario segue outro, os Posts dos outros usuarios também são exibidos em seu perfil.
+### Rede Social GrandePapagaio feita em Java, onde é possível criar um usuário ou entrar como usuário existente. O usuário pode postar, seguir, deixar de seguir e ver o seu perfil. Quando um usuário segue outro, os posts dos outros usuários também são exibidos em seu perfil.
